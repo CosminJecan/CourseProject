@@ -1,0 +1,97 @@
+
+* {box-sizing: border-box;}
+
+
+.left {
+    float: left;
+    padding: 35px 0 30px 20px;
+    width: 30%;
+    height: 390px;
+    background-color: #F4A460;
+    }
+
+.right {
+    float: left;
+    padding-top: 40px;
+    padding-left: 70px;
+    width: 70%;
+    height: 800px;
+    display: table;
+    }
+
+.row:before {
+    content: "";
+    display: table;
+}
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+}
+
+th, tr, td {
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+tr:nth-child(2) {
+    counter-reset: rowNumber;
+}
+
+table tr {
+    counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+    content: counter(rowNumber);
+}
+
+label {
+    font-style: italic;
+    line-heig
+}
+
+.src-box {
+    width: 92%;
+    box-sizing: border-box;
+    border: 2px solid;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: white;
+    padding: 5px 10px 5px 10px;
+}
+
+.addsite-button {
+    border: 2px solid;
+    border-radius: 5px;
+    font-style: italic;
+    font-weight: bold;
+    padding: 12px 25px 12px 25px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    left: 35%;
+    top: 10px;
+}
+
+.firstpage-button {
+    border: 2px solid;
+    border-radius: 5px;
+    font-style: italic;
+    font-weight: bold;
+    padding: 15px 25px 15px 25px;
+    text-align: center;
+    background-color: #B0C4DE;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    left: 20px;
+    top: 17px;
+}
+
+.firstpage-button:hover {
+  background-color: #8B0000;
+  color: white;
+}

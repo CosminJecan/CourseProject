@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SearchURL: url_list</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+        <ul>
+            <li th:each="url: ${urlsList}" >
+                <!--        <td th:text="${url.siteName}"></td>-->
+                <td th:text="${url.searchUrl + elementCautat}"></td>
+            </li>
+        </ul>
+    <script src="open.js"></script>
+    <script>
+            location.assign("application");
+    </script>
+</body>
+</html>

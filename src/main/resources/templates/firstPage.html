@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>First Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="firstPage.css"/>
+</head>
+<body>
+    <div class="fprow">
+        <div class="col-left">
+            <div>
+                <a href="/admin/add">
+                    <button class="add-button">Adauga site</button><br>
+                </a>
+            </div>
+            <h3 align="left"><u>Cautare pe urmatoarele site-uri:</u></h3>
+            <div>
+                <dl>
+                    <li th:each="url: ${urlsList}">
+                        <td th:text="${url.siteName}" ></td>
+                    </li>
+                </dl>
+            </div>
+        </div>
+        <div class="col-right">
+            <div>
+                <form method="post">
+                    <dl>
+                        <dd>
+                            <label>Cauta produsul dorit:</label>
+                            <input class="search-box" type="text" name="elementCautat"><br><br>
+                            <input class="search-button" type="submit" value="Cauta">
+                        </dd>
+                    </dl>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/addPageStyle.css"/>
+</head>
+<body>
+<div class="row">
+    <div class="left">
+        <h3 align="center"><u>Adaugare site dorit:</u></h3><br>
+
+        <form method="post" action="add">
+            <dl>
+                <dd>
+                    <label for="site_name" style="text-indent: 120px">Nume site:</label><br>
+                    <input class="src-box" type="text" id="site_name" name="sitename_html" placeholder="Completeaza nume site"
+                           required
+                           oninvalid="this.setCustomValidity('Trebuie completat acest camp!')"
+                           onchange="this.setCustomValidity('')"><br><br>
+
+                    <label for="site_url">URL site:</label><br>
+                    <input class="src-box" type="text" id="site_url" name="siteurl_html" placeholder="Completeaza URL site"
+                           required
+                           oninvalid="this.setCustomValidity('Trebuie completat acest camp!')"
+                           onchange="this.setCustomValidity('')"><br><br><br>
+
+                    <input class="addsite-button" type="submit" value="Adauga">
+                </dd>
+            </dl>
+        </form>
+    </div>
+    <div>
+        <a href="/application">
+            <button class="firstpage-button">Cautare in site-uri</button><br>
+        </a>
+    </div>
+    <div class="right">
+        <h3 style="text-indent: 70px"><u>Lista site-uri adaugate:</u></h3>
+        <div>
+            <table>
+                <tr>
+                    <th scope="col"><i>Nr. crt.</i></th>
+                    <th scope="col"><i>Nume site</i></th>
+                    <th scope="col"><i>URL site</i></th>
+                </tr>
+                <tr th:each="url: ${urlsList}">
+                    <td scope="row" style="text-align: center"></td>
+                    <td th:text="${url.siteName}" ></td>
+                    <td th:text="${url.searchUrl}"></td>
+                    <td>
+                        <a th:href="@{'/admin/delete?urlid_html=' + ${url.id}}">
+                            <button>Delete</button>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
